@@ -1,0 +1,74 @@
+// .form-range {
+//     position: relative;
+//   }
+
+//   .form-range input::-webkit-slider-thumb::before {
+//     content: attr(value);
+//     position: absolute;
+//     top: -30px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     font-size: 12px;
+//     font-weight: bold;
+//     background-color: #007bff;
+//     color: #fff;
+//     padding: 2px 5px;
+//     border-radius: 5px;
+//   }
+
+//   .form-range input::-moz-range-thumb::before {
+//     content: attr(value);
+//     position: absolute;
+//     top: -30px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     font-size: 12px;
+//     font-weight: bold;
+//     background-color: #007bff;
+//     color: #fff;
+//     padding: 2px 5px;
+//     border-radius: 5px;
+//   }
+
+//   .form-range input::-ms-thumb::before {
+//     content: attr(value);
+//     position: absolute;
+//     top: -30px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     font-size: 12px;
+//     font-weight: bold;
+//     background-color: #007bff;
+//     color: #fff;
+//     padding: 2px 5px;
+//     border-radius: 5px;
+//   }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.btn-check.active+.btn-outline-primary,
+.btn-outline-primary.active {
+  background-color: #be9733;
+  border-color: #ffffff;
+  color: #fff;
+  pointer-events: none;
+  /* Disable pointer events on inactive buttons */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(118, 113, 113, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+}
+
+

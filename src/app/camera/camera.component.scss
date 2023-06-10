@@ -1,0 +1,77 @@
+.camera-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .camera {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .visible {
+    display: block;
+  }
+  
+  .capturing .camera {
+    display: none;
+  }
+  
+  .capturing .canvas {
+    display: block;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  ::ng-deep .modal-header {
+    border-radius: 8px 8px 0px 0px;
+  }
+  .custom-close-btn {
+    background-color: #24252b;
+    border: none;
+    outline: none;
+  }
+  
+  .custom-close-btn span {
+    color: #fff;
+  }
+
+
+  .modal-header,
+  .modal-footer {
+    border-color: black;
+  }
+
+  .video-flipped {
+    transform: scaleX(-1);
+  }
+
+  .green-border {
+    border: 2px solid green;
+  }
+  

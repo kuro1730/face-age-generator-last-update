@@ -1,0 +1,28 @@
+<!-- Modal -->
+<div
+	class="modal {{ addStyle }}"
+	id="exampleModal"
+	tabindex="-1"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+    text-white
+    >
+	<div class="modal-dialog modal-dialog-scrollable "  >
+		<div class="modal-content " style="background-color: #24252b;" >
+			<div class="modal-header justify-content-center d-flex text-white">
+				<h1 class="modal-title fs-5" id="exampleModalLabel" style="justify-content: start;">พบข้อผิดพลาด</h1>
+                <!-- <button type="button" class="close custom-close-btn" data-dismiss="modal" aria-label="Close" (click)="onNoClick()" style="justify-content: end; ">
+                    <span aria-hidden="true">&times;</span>
+                  </button> -->
+			</div>
+			<div class="modal-body justify-content-center d-flex text-white" >
+        <!-- <h4></h4> -->
+				ไม่ตรวจพบใบหน้าบนรูปภาพของคุณ
+			</div>
+			<div class="modal-footer d-flex justify-content-center" >
+				
+				<button type="button" class="btn btn-outline-danger" (click)="onNoClick()" style="font-size: medium;">อัปโหลดรูปภาพใหม่</button>
+			</div>
+		</div>
+	</div>
+</div>

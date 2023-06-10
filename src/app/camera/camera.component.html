@@ -1,0 +1,36 @@
+<div class="overlay"  *ngIf="isLoading" >
+<div class="spinner-border text-light" role="status" *ngIf="isLoading"  style="justify-items: center; align-items: center;">
+    <span class="visually-hidden">Loading...</span>
+  </div></div>
+
+<div class="modal-header " style="background-color: #24252b;">
+    <p class="modal-title text-white">ในการบันทึกรูปภาพ คุณภาพของรูปภาพของคุณจะขึ้นอยู่กับคุณภาพของ web cam ที่คุณใช้</p>
+    <button type="button" class="close custom-close-btn" data-dismiss="modal" aria-label="Close" (click)="onNoClick()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<div class="modal-body text-white d-flex justify-content-center align-items-center" style="background-color: #24252b; flex-direction: column;">
+    
+        
+   
+  <h3 *ngIf="!capturingEnabled&&detectStarted">ไม่ตรวจพบใบหน้า</h3> 
+  <h3 *ngIf="capturingEnabled">ตรวจพบใบหน้า</h3>
+
+  <div [hidden]="!showVideo" >
+    <video #video [ngClass]="{'green-border': capturingEnabled}" autoplay></video>
+  </div>
+  
+  <div [hidden]="showVideo">
+    <canvas #canvas [ngClass]="{'green-border': capturingEnabled}"></canvas>
+  </div>
+  
+    
+  </div>
+  
+  <div class="modal-footer text-white"  style="background-color: #24252b;justify-content: center; ">
+    <!-- <button type="button" class="btn btn-secondary" (click)="onNoClick()">Close</button> -->
+    <button type="button" class="btn btn-primary" *ngIf="!capturing" (click)="capture()" [disabled]="!capturingEnabled">ถ่ายรูปภาพ</button>
+    <button type="button" class="btn btn-primary" *ngIf="capturing" (click)="save()">ยืนยันการบันทึก</button>
+    <button type="button" class="btn btn-outline-danger" *ngIf="capturing" (click)="retake()">ถ่ายรูปภาพใหม่</button>
+  </div>

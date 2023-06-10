@@ -1,0 +1,29 @@
+// .modal-body {
+//     text-indent: 2.5rem;
+// }
+
+.modal {
+    transition: opacity;
+    // display: flex !important;
+    // justify-content: center;
+    // align-items: center;
+    // overflow: auto;
+}
+
+.custom-close-btn {
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+.custom-close-btn span {
+    color: #000000;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  

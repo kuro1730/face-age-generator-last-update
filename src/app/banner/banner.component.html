@@ -1,0 +1,113 @@
+<!-- <p>banner works!</p> -->
+<div class=" bg-dark text-center" style="padding-top: 20px;">
+    <div class="banner mx-5 ">
+        <div class="banner-header bg-black" style=" color:white">
+            <h1>ประกาศคนหาย</h1>
+            <h2>Missing Person</h2>
+        </div>
+        <div class="banner-body">
+
+            <!-- card -->
+            <div class="card-group " style="border-radius:  0%; ">
+                <div class="card" style="border-radius:  0% ;">
+                    <app-card [file]="statefile" ></app-card>
+                    <!-- <img src="../../assets/image/image 47.png" class="card-img-top" alt="..." /> -->
+                    <div class="card-body">
+                        <h5 class="card-title">ภาพจริงในอดีต</h5>
+                        <p class="card-text">{{ageDes}}</p>
+                    </div>
+
+                </div>
+                <div class="card" style="border-radius:0%; ">
+                    <app-card [file]="resultStateFile" ></app-card>
+                    <!-- <img src="../../assets/image/image 48.png" class="card-img-top" alt="..." /> -->
+                    <div class="card-body">
+                        <h5 class="card-title">ภาพจำลองปัจจุบัน</h5>
+                        <p class="card-text">{{ageGenDes}}</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /card -->
+            <!-- dat -->
+            <div style="background-color: #BE3386; color: white; padding-top:20px ; padding-bottom: 20px;">
+                <span>
+                    <h3 style="word-wrap: break-word;">{{misingNameSection}}</h3>
+                </span>
+                <!-- <h3>{{ firstName }} {{ lastName }}</h3> -->
+            </div>
+            <div style="background-color: white; color: black; padding-top:20px ; padding-bottom: 20px; padding-right:30px; align-items: center; justify-content: center;">
+                <div style="display: flex; flex-direction: column;  ">
+                    <div style="display: flex; flex-direction: row; align-items: center ">
+                        <div style="display: flex; flex-direction: column; width: 30%; color:#BE3386">
+                            <h3> ลักษณะสำคัญ :</h3>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: column; width: 70%;">
+                            <p style="word-wrap: break-word;"> {{appearance}}</p>
+                        </div>
+                    </div>
+                    <hr style="border: 1px solid black;"/>
+                    <div style="display: flex; flex-direction: row; align-items: center ">
+                        <div style="display: flex; flex-direction: column; width: 30%;color: #BE3386;">
+                            <h3> ตำแหน่งล่าสุด :</h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; width: 70%;">
+                            <p style="word-wrap: break-word;"> {{location}} {{subDistrict}} {{district}} {{province}}</p>
+                        </div>
+                    </div>
+                    <hr style="border: 1px solid black;"/>
+                    <div style="display: flex; flex-direction: row; align-items: center">
+                        <div style="display: flex; flex-direction: column; width: 30%;color: #BE3386;">
+                            <h3> วันที่และเวลาสูญหาย :</h3>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; width: 70%;">
+                            <p style="word-wrap: break-word;"> {{dateTimeString}} </p>
+                        </div>
+                    </div>
+                    <hr style="border: 1px solid black;"/>
+                    <div style="display: flex; flex-direction: row; align-items: center">
+                        <div style="display: flex; flex-direction: column; width: 30%;color: #BE3386;">
+                            <h3 > หมายเหตุ :</h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; width: 70%;">
+                            <p style="word-wrap: break-word;"> {{comment}} </p>
+                        </div>
+                    </div>
+                    <!-- /dat -->
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="banner-footer" style="background-color: black; color: white; padding-top:10px ;padding-right:30px;">
+           <div  style = "display:flex;flex-direction: row; align-items: center; justify-content: center;"> <h3 class="me-2" style="width: 30%; color: gold;">แจ้งเบาะแสได้ที่ : </h3>
+            <h5 style="width: 70%; word-wrap: break-word;" >{{informerSection}}</h5></div>
+            <!-- <button type="button" class="btn btn-secondary">พิมพ์</button>
+    <button type="button" class="btn btn-primary">ดาวน์โหลด</button>
+    <button type="button" class="btn btn-tertiary">แชร์</button> -->
+
+
+        </div>
+    </div>
+    
+        <div class="d-flex flex-row justify-content-center">
+            <app-offcanvas (notify)="onNotify($event)"></app-offcanvas>
+            <div style="padding-left: 10px;">
+            <button class="btn btn-lg btn-outline-danger" (click)="goToHome()" >สร้างรูปภาพใบหน้าใหม่</button>
+        </div>
+        </div>
+        
+        <div style="display: flex; justify-content: center; flex-direction: row; padding-bottom: 20px;" >
+            <div style="padding-top:20px; margin-right: 10px;">
+                <button type="button" class="btn btn-primary" (click)="exportToPNG()" >ดาวน์โหลด</button></div>
+            <div style="margin-left: 10px;">
+                <button type="button" class="btn btn-tertiary text-white" style="margin-top: 20px; font-family: IBM Plex Sans Thai;" (click)="exportToPNGShare()" >แชร์ไปยัง Facebook</button>
+            </div>
+            <div style="padding-top:20px; margin-left: 20px;">
+                <button type="button" class="btn btn-primary" (click)="exportToPNGPrint()" >พิมพ์</button></div>
+        </div>
+ 
+</div>

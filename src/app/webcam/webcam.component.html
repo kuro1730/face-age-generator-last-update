@@ -1,0 +1,51 @@
+<div class="overlay" *ngIf="isLoading">
+  <div
+    class="spinner-border text-light"
+    role="status"
+    *ngIf="isLoading"
+    style="justify-items: center; align-items: center"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="modal-header" style="background-color: #24252b">
+  <p class="modal-title text-white">
+    ตรวจสอบข้อมูลบนใบหน้าจาก webcam
+  </p>
+  <button
+    type="button"
+    class="close custom-close-btn"
+    data-dismiss="modal"
+    aria-label="Close"
+    (click)="onNoClick()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div
+  class="modal-body text-white d-flex justify-content-center align-items-center video-container"
+  style="background-color: #24252b "
+>
+  
+    <video #video  autoplay muted></video>
+    <canvas #canvas ></canvas>
+  </div>
+
+
+<div
+  class="modal-footer text-white"
+  style="background-color: #24252b; justify-content: center"
+>
+  <!-- <button type="button" class="btn btn-secondary" (click)="onNoClick()">Close</button> -->
+  <!-- <button type="button" class="btn btn-primary" >
+    ถ่ายรูปภาพ
+  </button>
+  <button type="button" class="btn btn-primary" >
+    ยืนยันการบันทึก
+  </button>
+  <button type="button" class="btn btn-outline-danger" >
+    ถ่ายรูปภาพใหม่
+  </button> -->
+</div>

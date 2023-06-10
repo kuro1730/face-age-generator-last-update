@@ -1,0 +1,204 @@
+<ng-template #content let-offcanvas>
+	<div class="offcanvas-header ">
+		<h4 class="offcanvas-title" id="offcanvas-basic-title" style="margin-right: 50px;">ข้อมูลบนประกาศ</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')" ></button>
+	</div>
+	<div class="offcanvas-body">
+		<!-- <span class="d-flex flex-row"><p style="color:red;">*</p><p>หากไม่ระบุส่วนใด ให้พิมพ์ว่า "ไม่ระบุ" <br>หากเป็นเวลาและวันที่ให้เว้นว่างไว้</p></span> -->
+		<form (ngSubmit)="onSubmit()" [formGroup]="form">
+			<h4>ข้อมูลผู้แจ้ง</h4>
+			<div class="mb-3">
+				<label for="">ชื่อ-นามสกุล</label>
+				<div class="input-group">
+					<!-- <select formControlName="informerTitle" class="form-select" aria-label="Default select example" id="title" style="color:gray;" >
+						<option [selected]="true" [disabled]="true" >คำนำหน้า</option>
+						<option value="นาย" >นาย</option>
+						<option value="นาง">นาง</option>
+						<option value="นางสาว">นางสาว</option>
+					</select> -->
+					<select
+                        formControlName="informerTitle"
+                        id="informerTitle"
+                        class="form-select"
+                        aria-label="Default select example"
+                        [ngClass]="{ 'text-black-50': form.value.informerTitle === '' }">
+                        <option value="" selected disabled hidden>คำนำหน้า</option>
+						<option value="ด.ช.">ด.ช.</option>
+						<option value="ด.ญ.">ด.ญ.</option>
+                        <option value="นาย">นาย</option>
+                        <option value="นาง">นาง</option>
+                        <option value="นางสาว">นางสาว</option>
+                    </select>
+					<input formControlName="informerFirstName" id="informerFirstName" class="form-control" placeholder="ชื่อจริง"  />
+					<input
+						formControlName="informerLastName"
+						id="informerLastName"
+						class="form-control"
+						placeholder="นามสกุล"
+						value="โปรดระบุนามสกุล" />
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="phone">เบอร์โทรศัพท์</label>
+				<input
+					#phoneInput
+					formControlName="phone"
+					id="phone"
+					class="form-control"
+					placeholder="โปรดระบุเบอร์โทรศัพท์"
+					value="form.value.phone||'โปรดระบุเบอร์โทรศัพท์'" 
+					(input)="formatPhone()"
+					/>
+			</div>
+			<div class="mb-3">
+				<label for="phone">อีเมล</label>
+				<input
+					formControlName="email"
+					id="email"
+					class="form-control"
+					placeholder="ระบุอีเมล"
+					value="ระบุอีเมล" />
+			</div>
+			<div class="mb-3">
+				<label for="phone">ช่องทางการติดต่ออื่น</label>
+				<textarea
+					formControlName="otherInformerContact"
+					id="otherInformerContact"
+					class="form-control"
+					placeholder="ช่องทางการติดต่ออื่น"
+					value="ระบุช่องทางการติดต่ออื่น" ></textarea>
+			</div>
+			<h4>ข้อมูลผู้สูญหาย</h4>
+			<div class="mb-3">
+				<label for="nickname">ชื่อเล่น</label>
+				<input formControlName="nickname"  class="form-control" placeholder="ชื่อเล่น" value="โปรดระบุชื่อเล่น"/>
+			</div>
+			<div class="mb-3">
+				<label for="">ชื่อ-นามสกุล</label>
+				<div class="input-group">
+					<select
+                        formControlName="title"
+                        id="title"
+                        class="form-select"
+                        aria-label="Default select example"
+                        [ngClass]="{ 'text-black-50': form.value.title === '' }">
+                        <option value="" selected disabled hidden>คำนำหน้า</option>
+						<option value="ด.ช.">ด.ช.</option>
+						<option value="ด.ญ.">ด.ญ.</option>
+                        <option value="นาย">นาย</option>
+                        <option value="นาง">นาง</option>
+                        <option value="นางสาว">นางสาว</option>
+                    </select>
+					<input formControlName="firstName" id="firstName" class="form-control" placeholder="ชื่อจริง" value="โปรดระบุชื่อจริง" />
+					<input
+						formControlName="lastName"
+						id="lastName"
+						class="form-control"
+						placeholder="นามสกุล"
+						value="โปรดระบุนามสกุล" />
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="age">อายุ ณ วันที่สูญหาย</label>
+				<input
+					formControlName="age"
+					id="age"
+					class="form-control"
+					placeholder="อายุ เช่น 10 ปี (ระบุเฉพาะตัวเลข)"
+					value="โปรดระบุอายุ" type="number" min="0" />
+			</div>
+			<div class="mb-3">
+				<label for="appearance">ลักษณะสำคัญ</label>
+				<textarea
+					formControlName="appearance"
+					id="appearance"
+					class="form-control"
+					placeholder="รูปพรรณสัณฐาน เช่น สูง 163 ซม. อ้วน สีผิวเข้ม มีไฝที่จมูก"
+					value="โปรดระบุลักษณะ" ></textarea>
+			</div>
+			<div class="mb-3">
+				<label for="location">ตำแหน่งล่าสุด</label>
+				<textarea
+					formControlName="location"
+					id="location"
+					class="form-control"
+					placeholder="เช่น หน้าประตู4 มหาวิทยาลัยมหิดล"
+					value="โปรดระบุสถานที่" ></textarea>
+			</div>
+			<div class="mb-3">
+				<div class="row">
+					<div class="col-6">
+						<label for="subDistrict">ตำบล</label>
+					</div>
+					<div class="col-6">
+						<label for="district">อำเภอ</label>
+					</div>
+				</div>
+				<div class="input-group">
+					<input
+						formControlName="subDistrict"
+						id="subDistrict"
+						class="form-control"
+						placeholder="โปรดระบุตำบล/แขวง"
+						value="โปรดระบุตำบล/แขวง" />
+					<input
+						formControlName="district"
+						id="district"
+						class="form-control"
+						placeholder="โปรดระบุอำเภอ/เขต"
+						value="โปรดระบุอำเภอ/เขต" />
+				</div>
+			</div>
+			<div class="mb-3">
+				<div class="row">
+					<div class="col-6">
+						<label for="province">จังหวัด</label>
+					</div>
+					<!-- <div class="col-6">
+						<label for="postalCode">รหัสไปรษณีย์</label>
+					</div> -->
+				</div>
+				<div class="input-group">
+					<input formControlName="province" id="province" class="form-control" placeholder="โปรดระบุจังหวัด" value="โปรดระบุจังหวัด" />
+					<!-- <input formControlName="postalCode" id="postalCode" class="form-control" placeholder="73170" value="โปรดระบุรหัสไปรษณีย์" /> -->
+				</div>
+			</div>
+			<div class="mb-3">
+				<label >เวลาที่สูญหาย (ระบุเป็นเวลาแบบ 24 ชั่วโมง)</label>
+				<div class="input-group">
+					<ngb-timepicker formControlName="time"></ngb-timepicker>
+				</div>
+				<label for="date">วันที่สูญหาย</label>
+				<div class="input-group">
+					<input
+						formControlName="date"
+						id="date"
+						class="form-control"
+						placeholder="yyyy-mm-dd"
+						name="dp"
+						ngbDatepicker
+						#dp="ngbDatepicker" />
+					<button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"><img src="../../assets/icon/icon.png"/></button>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="comment">หมายเหตุ</label>
+				<textarea
+					formControlName="comment"
+					id="comment"
+					class="form-control"
+					placeholder="หมายเหตุ เช่น มีเงินรางวัลเพิ่มเติมให้กับผู้ที่พบ , พฤติกรรมหรืออาการป่วยของผู้สูญหาย"
+					value="โปรดระบุหมายเหตุ" ></textarea>
+			</div>
+			<div class="text-end">
+				<input type="submit" class="btn btn-outline-dark" (click)="offcanvas.close('Save click')" value="บันทึก" />
+			</div>
+		</form>
+	</div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">แก้ไขข้อมูล</button>
+
+<!-- <hr />
+
+<pre>{{ closeResult }}</pre> -->

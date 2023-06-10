@@ -1,0 +1,17 @@
+<div class=" d-flex flex-column justify-content-around align-items-center" style="background-color: #e0dfdf;">
+	<app-pdpa-consent (checkPDPAChange)="onCheckPDPAChange($event)" *ngIf="!checkPDPAI"  ></app-pdpa-consent>
+	<div class="text-center " style="padding-top: 50px;">
+		<h1>
+			อีก 10 ปีข้างหน้า <br />
+			ใบหน้าผู้สูญหายจะเปลี่ยนเป็นแบบไหน
+		</h1>
+		<h2>ปรับภาพใบหน้าจากอายุ การหันของใบหน้า การยิ้มและทรงผม</h2>
+	</div>
+	<div>
+	<button type="button" class="btn btn-primary slide" (click)="goToHome()" >เริ่มต้นใช้งาน</button>
+	<span style="margin-left: 20px; margin-right: 20px;">หรือ</span>
+	<button type="button" class="btn btn-tertiary slide" (click)="goToFaceDetect()" >ตรวจสอบใบหน้า</button>
+	</div>
+	<!-- <app-webcam></app-webcam> -->
+	<img src="../../assets/image/intro.png" alt="" style="width: 100%; padding-top: 50px;" />
+</div>

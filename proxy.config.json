@@ -1,0 +1,15 @@
+{
+    "/v1/*": {
+      "target": "https://api.replicate.com",
+      "secure": false,
+      "logLevel":"debug",
+      "changeOrigin": true
+    },
+    "/run/*": {
+      "target": "https://kuro1730-stylegan-nada-apitest.hf.space",
+      "secure": false,
+      "logLevel":"debug",
+      "changeOrigin": true
+    }
+
+  }
